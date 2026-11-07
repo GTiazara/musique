@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SongCard from '../../components/SongCard.astro';
+import SongFilters from '../../components/SongFilters.vue';
+import { categories } from '../../data/categories';
+import { publishedMorceaux, sortByUpdatedDesc, toSearchDocument } from '../../lib/morceaux';
+
+const published = sortByUpdatedDesc(publishedMorceaux(await getCollection('morceaux')));
+const cards = published.map((entry) => toSearchDocument(entry, import.meta.env.BASE_URL));
+const visibleCategories = categories.filter((item) =>
+  published.some((entry) => entry.data.category === item.slug),
+);
+---
+<Base title="Morceaux — Guitarothèque" description="Tous les morceaux publiés, filtrables par catégorie, niveau et progression.">
+  <h1>Tous les morceaux</h1>
+  <SongFilters
+    client:load
+    listId="catalogue"
+    emptyId="catalogue-vide"
+    showCategory={true}
+    categories={visibleCategories}
+  />
+  <p id="catalogue-vide" class="empty" hidden>Aucun morceau ne correspond à ces filtres.</p>
+  <ul id="catalogue" class="card-grid">
+    {cards.map((card) => (
+      <SongCard
+        title={card.title}
+        artist={card.artist}
+        description={card.description}
+        category={card.category}
+        categoryLabel={card.categoryLabel}
+        difficulty={card.difficulty}
+        difficultyLabel={card.difficultyLabel}
+        status={card.status}
+        statusLabel={card.statusLabel}
+        chords={card.chords}
+        href={card.href}
+      />
+    ))}
+  </ul>
+</Base>

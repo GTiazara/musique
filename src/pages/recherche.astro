@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import SearchResults from '../components/SearchResults.vue';
+import { categories } from '../data/categories';
+---
+<Base title="Recherche — Guitarothèque" description="Rechercher un titre, un artiste ou un accord.">
+  <h1>Recherche</h1>
+  <SearchResults client:load categories={[...categories]} />
+</Base>

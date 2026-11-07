@@ -1,0 +1,27 @@
+---
+import Base from '../../layouts/Base.astro';
+import { categories } from '../../data/categories';
+import { getCollection } from 'astro:content';
+import { publishedMorceaux } from '../../lib/morceaux';
+import { withBase } from '../../lib/paths';
+
+const published = publishedMorceaux(await getCollection('morceaux'));
+const base = import.meta.env.BASE_URL;
+
+/** Nombre de morceaux publiés dans une catégorie. */
+function countByCategory(slug: string): number {
+  return published.filter((entry) => entry.data.category === slug).length;
+}
+---
+<Base title="Catégories — Guitarothèque" description="Les styles dans lesquels classer un morceau.">
+  <h1>Catégories</h1>
+  <p class="lead">Chaque morceau choisit une catégorie dans son fichier. Pour en ajouter une, complète la liste du projet.</p>
+  <div class="category-grid">
+    {categories.map((item) => (
+      <a class="category-card" href={withBase(`/categories/${item.slug}`, base)}>
+        <strong>{item.label}</strong>
+        <span class="artist">{countByCategory(item.slug)} morceau{countByCategory(item.slug) > 1 ? 'x' : ''}</span>
+      </a>
+    ))}
+  </div>
+</Base>

@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+import { withBase } from '../lib/paths';
+
+const base = import.meta.env.BASE_URL;
+---
+<Base title="À propos — Guitarothèque" description="Comment ajouter un morceau au répertoire.">
+  <h1>Ajouter un morceau</h1>
+  <p class="lead">
+    Le site est un dossier de fichiers. Il n'y a pas de formulaire : un nouveau titre, c'est un nouveau fichier Markdown.
+  </p>
+  <ol class="reading">
+    <li>Copie <code>src/content/morceaux/_modele.md</code>.</li>
+    <li>Renomme-le, par exemple <code>mon-morceau.md</code>. Ce nom devient l'adresse <code>/morceaux/mon-morceau</code>.</li>
+    <li>Remplis le haut du fichier. La catégorie doit exister dans <code>src/data/categories.ts</code>.</li>
+    <li>Écris la grille et, si tu veux, la tablature. Passe <code>draft</code> à <code>false</code> pour publier.</li>
+  </ol>
+  <h2>Grille</h2>
+  <p>Dans un bloc <code>grille</code>, un accord entre crochets se place au-dessus des mots qui suivent, comme sur une page de tutoriel. Une ligne qui commence par <code>#</code> nomme le couplet ou le refrain.</p>
+  <pre class="prose-example">{`\`\`\`grille
+# Couplet
+[C]Au clair de la [G7]lune
+[Am] [F] [G] [C]
+\`\`\``}</pre>
+  <h2>Doigtés</h2>
+  <p>
+    Les accords courants (C, Am, G, F en barré, Em7…) ont déjà une position. Pour un doigté précis, ajoute
+    <code>shapes</code> dans le fichier. Six valeurs, du mi grave au mi aigu : <code>0</code> corde à vide,
+    <code>x</code> corde muette, un nombre pour la case. <code>fingers</code> numérote les doigts de 1 à 4.
+    <code>barre</code> décrit un barré : <code>from</code> et <code>to</code> vont de 6 (mi grave) à 1 (mi aigu).
+  </p>
+  <h2>Tablature</h2>
+  <p>Un bloc <code>tab</code> reste en caractères, aligné comme dans les tutos. Les espaces sont conservés.</p>
+  <pre class="prose-example">{`\`\`\`tab
+e|---0---
+B|---1---
+G|---0---
+D|---2---
+A|---3---
+E|-------
+\`\`\``}</pre>
+  <p><a href={withBase('/morceaux', base)}>Retour au répertoire</a></p>
+</Base>

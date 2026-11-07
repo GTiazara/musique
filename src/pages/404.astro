@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import { withBase } from '../lib/paths';
+
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Page introuvable — Guitarothèque" description="Cette adresse ne correspond à aucun morceau publié.">
+  <h1>Cette page n'existe pas</h1>
+  <p class="lead">Le morceau est peut-être encore un brouillon, ou l'adresse a changé.</p>
+  <p><a href={withBase('/morceaux', base)}>Voir le répertoire</a></p>
+</Base>

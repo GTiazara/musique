@@ -1,0 +1,90 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { categories } from '../data/categories';
+import {
+  distinctCount,
+  publishedCount,
+  publishedMorceaux,
+  sortByUpdatedDesc,
+  toSearchDocument,
+} from '../lib/morceaux';
+import { withBase } from '../lib/paths';
+
+const all = await getCollection('morceaux');
+const published = sortByUpdatedDesc(publishedMorceaux(all));
+const cards = published.map((entry) => toSearchDocument(entry, import.meta.env.BASE_URL));
+const songCount = publishedCount(all);
+const categoryCount = distinctCount(published, (entry) => entry.data.category);
+const learningCount = published.filter((entry) => entry.data.status !== 'maitrise').length;
+const base = import.meta.env.BASE_URL;
+const visibleCategories = categories.filter((item) =>
+  published.some((entry) => entry.data.category === item.slug),
+);
+
+/** Nombre de morceaux publiés dans une catégorie. */
+function countByCategory(slug: string): number {
+  return published.filter((entry) => entry.data.category === slug).length;
+}
+---
+<Base
+  title="Guitarothèque — Mon répertoire guitare"
+  description="Morceaux, accords et tablatures. Chaque titre est un fichier Markdown."
+>
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Le plaisir de jouer, à portée de main</p>
+      <h1>Ma musique.<br /><em>Ma guitare.</em></h1>
+      <p class="lead">
+        Le répertoire, les accords et les doigtés au même endroit. Un fichier par morceau, une page par titre.
+      </p>
+      <form class="hero-search" action={withBase('/recherche', base)} method="get">
+        <label class="sr-only" for="recherche-accueil">Rechercher un morceau</label>
+        <input id="recherche-accueil" type="search" name="q" placeholder="Rechercher un titre, un artiste, un accord…" />
+        <button class="button" type="submit">Rechercher</button>
+      </form>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong>{songCount}</strong><span>Morceaux</span></div>
+      <div class="stat"><strong>{categoryCount}</strong><span>Catégories</span></div>
+      <div class="stat"><strong>{learningCount}</strong><span>À travailler</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Parcourir par catégorie</h2>
+      <a href={withBase('/categories', base)}>Toutes les catégories</a>
+    </div>
+    <div class="category-grid">
+      {visibleCategories.map((item) => (
+        <a class="category-card" href={withBase(`/categories/${item.slug}`, base)}>
+          <strong>{item.label}</strong>
+          <span class="artist">{countByCategory(item.slug)} morceau{countByCategory(item.slug) > 1 ? 'x' : ''}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Derniers morceaux</h2>
+      <a href={withBase('/morceaux', base)}>Tout le répertoire</a>
+    </div>
+    <ul class="card-grid">
+      {cards.slice(0, 6).map((card) => (
+        <li class="card">
+          <div class="cover"><span class="genre">{card.categoryLabel}</span></div>
+          <div class="card-body">
+            <h3 class="song-title"><a href={card.href}>{card.title}</a></h3>
+            <p class="artist">{card.artist}</p>
+            <p class="meta">
+              <span class="pill">{card.difficultyLabel}</span>
+              <span class="pill">{card.statusLabel}</span>
+            </p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>

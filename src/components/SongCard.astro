@@ -1,0 +1,38 @@
+---
+interface Props {
+  title: string;
+  artist: string;
+  description: string;
+  category: string;
+  categoryLabel: string;
+  difficulty: string;
+  difficultyLabel: string;
+  status: string;
+  statusLabel: string;
+  chords: string[];
+  href: string;
+}
+const props = Astro.props;
+---
+<li
+  class="card"
+  data-category={props.category}
+  data-difficulty={props.difficulty}
+  data-status={props.status}
+>
+  <div class="cover"><span class="genre">{props.categoryLabel}</span></div>
+  <div class="card-body">
+    <h2 class="song-title"><a href={props.href}>{props.title}</a></h2>
+    <p class="artist">{props.artist}</p>
+    <p class="meta">
+      <span class:list={['pill', { easy: props.difficulty === 'debutant' }]}>{props.difficultyLabel}</span>
+      <span class:list={['pill', { done: props.status === 'maitrise' }]}>{props.statusLabel}</span>
+    </p>
+    {props.chords.length > 0 && (
+      <p class="chord-row">
+        {props.chords.slice(0, 4).map((chord) => <span class="chord-name">{chord}</span>)}
+      </p>
+    )}
+    <p class="excerpt">{props.description}</p>
+  </div>
+</li>

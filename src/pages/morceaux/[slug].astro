@@ -1,0 +1,88 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ChordDiagrams from '../../components/ChordDiagrams.vue';
+import TabPlayer from '../../components/TabPlayer.vue';
+import { capoLabel, diagramsFor, publishedMorceaux, sortByUpdatedDesc, toSearchDocument } from '../../lib/morceaux';
+import { withBase } from '../../lib/paths';
+
+/**
+ * Pages des morceaux publiés seulement.
+ * Un brouillon n'a pas d'adresse : la page introuvable répond à sa place.
+ */
+export async function getStaticPaths() {
+  const published = publishedMorceaux(await getCollection('morceaux'));
+  return published.map((entry) => ({ params: { slug: entry.id } }));
+}
+
+const { slug } = Astro.params;
+const ordered = sortByUpdatedDesc(publishedMorceaux(await getCollection('morceaux')));
+const position = ordered.findIndex((item) => item.id === slug);
+const entry = ordered[position];
+if (!entry) {
+  throw new Error(`Morceau publié introuvable : ${slug}`);
+}
+const newer = ordered[position - 1];
+const older = ordered[position + 1];
+const card = toSearchDocument(entry, import.meta.env.BASE_URL);
+const diagrams = diagramsFor(entry);
+const { Content } = await render(entry);
+const base = import.meta.env.BASE_URL;
+const capo = capoLabel(entry.data.capo, entry.data.capoNote);
+const links = [
+  ['Écouter', entry.data.youtube, ''],
+  ['Tutoriel', entry.data.tutorial, 'secondary'],
+  ['Autre source', entry.data.sheet, 'secondary'],
+].filter((item): item is [string, string, string] => Boolean(item[1]));
+---
+<Base title={`${card.title} — Guitarothèque`} description={card.description}>
+  <article>
+    <a class="back-link" href={withBase('/morceaux', base)}>← Tous les morceaux</a>
+    <header>
+      <p class="fiche-kicker">
+        <a href={withBase(`/categories/${entry.data.category}`, base)}>{card.categoryLabel}</a>
+        <span class="pill">{card.difficultyLabel}</span>
+        <span class:list={['pill', { done: entry.data.status === 'maitrise' }]}>{card.statusLabel}</span>
+        {entry.data.key && <span class="pill">Tonalité {entry.data.key}</span>}
+        {capo && <span class="pill">{capo}</span>}
+      </p>
+      <h1>{card.title}</h1>
+      <p class="artist">{card.artist}</p>
+      <p class="lead">{card.description}</p>
+    </header>
+    {links.length > 0 && (
+      <p class="detail-links">
+        {links.map(([label, href, kind]) => (
+          <a class={kind} href={href} target="_blank" rel="noopener noreferrer">{label} ↗</a>
+        ))}
+      </p>
+    )}
+    {diagrams.length > 0 && (
+      <section>
+        <h2>Positions</h2>
+        {capo && <p class="note">Les diagrammes montrent les doigtés écrits. Le capo, s'il y en a un, se place en plus.</p>}
+        <ChordDiagrams client:load diagrams={diagrams} />
+      </section>
+    )}
+    <div class="reading">
+      <Content />
+    </div>
+    <TabPlayer client:load capo={entry.data.capo} />
+    {(newer || older) && (
+      <nav class="fiche-pager" aria-label="Autres morceaux">
+        {newer ? (
+          <a href={withBase(`/morceaux/${newer.id}`, base)}>
+            <span class="artist">← Plus récent</span>
+            <strong>{newer.data.title}</strong>
+          </a>
+        ) : <span />}
+        {older ? (
+          <a class="next" href={withBase(`/morceaux/${older.id}`, base)}>
+            <span class="artist">Plus ancien →</span>
+            <strong>{older.data.title}</strong>
+          </a>
+        ) : <span />}
+      </nav>
+    )}
+  </article>
+</Base>
