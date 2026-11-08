@@ -11,6 +11,12 @@ npm run dev
 
 `npm run build` écrit le site dans `dist/`. `npm test` vérifie la grille, les diagrammes et le schéma.
 
+## Publication
+
+Le workflow GitHub Pages publie sur `https://musique.gtiazara.fr`, à la racine : `SITE_URL=https://musique.gtiazara.fr` et `SITE_BASE=/`. Dans les paramètres GitHub Pages du dépôt, le domaine personnalisé doit être `musique.gtiazara.fr`.
+
+Pour publier sous un sous-dossier, adapter ces deux variables dans `.github/workflows/pages.yml`. Après un changement de base, reconstruire et redéployer tout le dossier `dist/`, HTML et assets ensemble.
+
 ## Ajouter un morceau
 
 1. Copie `src/content/morceaux/_modele.md`.
