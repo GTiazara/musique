@@ -12,9 +12,9 @@ tags: [rock, ballad, hard-rock, 90s, solo, sifflement, historique]
 publishedAt: 1990-11-06
 updatedAt: 2026-11-08
 draft: false
-youtube: "https://youtube.com"
-tutorial: "https://youtube.com"
-sheet: "https://ultimate-guitar.com"
+# youtube: "https://youtube.com"
+# tutorial: "https://youtube.com"
+# sheet: "https://ultimate-guitar.com"
 shapes:
   - name: C
     frets: [x, 3, 2, 0, 1, 0]

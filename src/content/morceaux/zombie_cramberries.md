@@ -12,9 +12,9 @@ tags: [rock, rock-alternatif, grunge, 90s, boucle-accords, incontournable]
 publishedAt: 1994-09-19
 updatedAt: 2026-11-07
 draft: false
-youtube: "https://youtube.com"
-tutorial: "https://youtube.com"
-sheet: "https://ultimate-guitar.com"
+# youtube: "https://youtube.com"
+# tutorial: "https://youtube.com"
+# sheet: "https://ultimate-guitar.com"
 shapes:
   - name: Em
     frets: [0, 2, 2, 0, 0, 0]

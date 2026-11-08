@@ -12,9 +12,9 @@ tags: [rock, classic-rock, arpèges, solo, 70s, mythique]
 publishedAt: 1976-12-08
 updatedAt: 2026-11-07
 draft: false
-youtube: "https://youtube.com"
-tutorial: "https://youtube.com"
-sheet: "https://ultimate-guitar.com"
+# youtube: "https://youtube.com"
+# tutorial: "https://youtube.com"
+# sheet: "https://ultimate-guitar.com"
 shapes:
   - name: Bm
     frets: [x, 2, 4, 4, 3, 2]

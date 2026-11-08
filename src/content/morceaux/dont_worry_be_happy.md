@@ -12,9 +12,9 @@ tags: [pop, feel-good, tonalite-originale, sifflement, 80s]
 publishedAt: 1988-09-01
 updatedAt: 2026-11-07
 draft: false
-youtube: "https://www.youtube.com/results?search_query=Bobby+McFerrin+Don%27t+Worry+Be+Happy+official"
-tutorial: "https://youtube.com"
-sheet: "https://www.ultimate-guitar.com/search.php?search_type=title&value=Dont+Worry+Be+Happy+Bobby+McFerrin"
+# youtube: "https://www.youtube.com/results?search_query=Bobby+McFerrin+Don%27t+Worry+Be+Happy+official"
+# tutorial: "https://youtube.com"
+# sheet: "https://www.ultimate-guitar.com/search.php?search_type=title&value=Dont+Worry+Be+Happy+Bobby+McFerrin"
 shapes:
   - name: B
     frets: [x, 2, 4, 4, 4, 2]

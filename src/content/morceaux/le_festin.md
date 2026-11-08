@@ -12,9 +12,9 @@ tags: [valse, swing, jazz-manouche, ratatouille, disney, chanson-francaise, arpe
 publishedAt: 2026-11-06
 updatedAt: 2026-11-06
 draft: false
-youtube: "https://www.youtube.com/results?search_query=Camille+Le+Festin+Ratatouille+official"
-tutorial: "https://www.youtube.com/results?search_query=Le+Festin+Camille+tutoriel+guitare"
-sheet: "https://www.ultimate-guitar.com/search.php?search_type=title&value=Le+Festin+Camille"
+# youtube: "https://www.youtube.com/results?search_query=Camille+Le+Festin+Ratatouille+official"
+# tutorial: "https://www.youtube.com/results?search_query=Le+Festin+Camille+tutoriel+guitare"
+# sheet: "https://www.ultimate-guitar.com/search.php?search_type=title&value=Le+Festin+Camille"
 shapes:
   - name: Fmaj7
     frets: [x, x, 3, 2, 1, 0]

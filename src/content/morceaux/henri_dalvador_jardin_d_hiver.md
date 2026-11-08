@@ -12,9 +12,9 @@ tags: [chanson, bossa-nova, jazz, 00s, acoustique, melodieux]
 publishedAt: 2000-10-17
 updatedAt: 2026-11-08
 draft: false
-youtube: "https://www.youtube.com/watch?v=cqz-Mn9_Ls8"
-tutorial: "http://galagomusic.com"
-sheet: "https://ultimate-guitar.com"
+# youtube: "https://www.youtube.com/watch?v=cqz-Mn9_Ls8"
+# tutorial: "http://galagomusic.com"
+# sheet: "https://ultimate-guitar.com"
 shapes:
   - name: G#m7b5
     frets: [4, x, 4, 4, 3, x]

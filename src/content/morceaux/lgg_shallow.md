@@ -12,8 +12,8 @@ tags: [arpeges, fingerpicking, accords-ouverts, ballade, dynamique]
 publishedAt: 2026-11-08
 updatedAt: 2026-11-08
 draft: false
-youtube: "https://youtube.com"
-tutorial: "https://www.youtube.com/watch?v=jOvkejMALzs"
+# youtube: "https://youtube.com"
+# tutorial: "https://www.youtube.com/watch?v=jOvkejMALzs"
 shapes:
   - name: Em7
     frets: [0, 2, 2, 0, 3, 0]

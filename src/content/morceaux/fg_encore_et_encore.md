@@ -12,9 +12,9 @@ tags: [chanson-francaise, rock-folk, classique, 80s, accords-reels]
 publishedAt: 1985-10-01
 updatedAt: 2026-11-07
 draft: false
-youtube: "https://youtube.com"
-tutorial: "https://youtube.com"
-sheet: "https://tabs.ultimate-guitar.com/tab/francis-cabrel/encore-et-encore-chords-1757838"
+# youtube: "https://youtube.com"
+# tutorial: "https://youtube.com"
+# sheet: "https://tabs.ultimate-guitar.com/tab/francis-cabrel/encore-et-encore-chords-1757838"
 shapes:
 #   - name: Em
 #     frets: [0, 2, 2, 0, 0, 0]

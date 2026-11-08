@@ -34,6 +34,7 @@ function href(path: string): string {
   <nav id="menu-mobile" class="mobile-panel" :class="{ 'is-open': open }" aria-label="Menu">
     <a :href="href('/')">Accueil</a>
     <a :href="href('/morceaux')">Morceaux</a>
+    <a :href="href('/recherche')">Recherche</a>
     <a :href="href('/categories')">Catégories</a>
     <a :href="href('/a-propos')">À propos</a>
   </nav>

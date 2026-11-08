@@ -12,9 +12,9 @@ tags: [chanson, classique, pop, 60s, acoustique, joyeux]
 publishedAt: 1969-05-01
 updatedAt: 2026-11-08
 draft: false
-youtube: "https://www.youtube.com/watch?v=_lwmXNIjL5w"
-tutorial: "https://superguitare.com"
-sheet: "https://ultimate-guitar.com"
+# youtube: "https://www.youtube.com/watch?v=_lwmXNIjL5w"
+# tutorial: "https://superguitare.com"
+# sheet: "https://ultimate-guitar.com"
 shapes:
   - name: C
     frets: [x, 3, 2, 0, 1, 0]

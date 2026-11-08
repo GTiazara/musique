@@ -12,9 +12,9 @@ tags: [reggae, accords-ouverts, contretemps, debutant, skank]
 publishedAt: 2026-11-06
 updatedAt: 2026-11-06
 draft: false
-youtube: "https://www.youtube.com/results?search_query=Bob+Marley+Three+Little+Birds+official+audio"
-tutorial: "https://goodguitarist.com/youtube-post/three-little-birds-guitar-tutorial-bob-marley/"
-sheet: "https://www.ultimate-guitar.com/search.php?search_type=title&value=Three+Little+Birds+Bob+Marley"
+# youtube: "https://www.youtube.com/results?search_query=Bob+Marley+Three+Little+Birds+official+audio"
+# tutorial: "https://goodguitarist.com/youtube-post/three-little-birds-guitar-tutorial-bob-marley/"
+# sheet: "https://www.ultimate-guitar.com/search.php?search_type=title&value=Three+Little+Birds+Bob+Marley"
 shapes:
   - name: A
     frets: [x, 0, 2, 2, 2, 0]

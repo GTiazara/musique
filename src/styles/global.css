@@ -421,18 +421,25 @@ select {
 }
 
 .filters {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 10px;
   margin: 0 0 16px;
 }
 
 .filters label {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 4px;
   color: var(--muted);
   font-size: 12px;
+}
+
+.filters input,
+.filters select {
+  width: 100%;
+  min-width: 0;
 }
 
 .empty {
@@ -809,6 +816,18 @@ select {
 
   .stats {
     justify-content: flex-start;
+  }
+}
+
+@media (min-width: 480px) {
+  .filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 860px) {
+  .filters {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 

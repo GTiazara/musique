@@ -12,8 +12,8 @@ tags: [pop, accords-ouverts, rythmique-divisee, tutoriel-francais]
 publishedAt: 2026-11-08
 updatedAt: 2026-11-08
 draft: false
-youtube: "https://youtube.com"
-tutorial: "https://www.youtube.com/watch?v=zqFidJPB67w"
+# youtube: "https://youtube.com"
+# tutorial: "https://www.youtube.com/watch?v=zqFidJPB67w"
 shapes:
   - name: G
     frets: [3, 2, 0, 0, 3, 3]
