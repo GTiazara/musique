@@ -33,11 +33,7 @@ function countByCategory(slug: string): number {
 >
   <section class="hero">
     <div>
-      <p class="eyebrow">Le plaisir de jouer, à portée de main</p>
-      <h1>Ma musique.<br /><em>Ma guitare.</em></h1>
-      <p class="lead">
-        Le répertoire, les accords et les doigtés au même endroit. Un fichier par morceau, une page par titre.
-      </p>
+      
       <form class="hero-search" action={withBase('/recherche', base)} method="get">
         <label class="sr-only" for="recherche-accueil">Rechercher un morceau</label>
         <input id="recherche-accueil" type="search" name="q" placeholder="Rechercher un titre, un artiste, un accord…" />

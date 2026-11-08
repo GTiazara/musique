@@ -12,9 +12,9 @@ tags: [chanson-francaise, folk, picking, classique, 70s, accords-reels]
 publishedAt: 1979-03-01
 updatedAt: 2026-11-08
 draft: false
-youtube: "https://youtube.com"
-tutorial: "https://youtube.com"
-sheet: "https://ultimate-guitar.com"
+# youtube: "https://youtube.com"
+# tutorial: "https://youtube.com"
+# sheet: "https://ultimate-guitar.com"
 shapes:
   - name: C/B
     frets: [x, 2, 0, 0, 1, 0]
