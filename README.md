@@ -28,9 +28,11 @@ Un fichier invalide fait échouer le build.
 
 ## Grille, doigtés, tablature
 
-Dans un bloc `grille`, `[G7]` se place au-dessus des mots qui suivent. Une ligne `# Refrain` est un repère, pas un accord.
+Dans un bloc `grille`, `[G7]` se place au-dessus des mots qui suivent. Une ligne `# Refrain` est un repère, pas un accord. Chaque fiche affiche en haut les diagrammes des accords relevés dans ses blocs `grille`, dans leur ordre de première apparition.
 
-Les positions courantes sont dans `src/data/chord-shapes.ts`. Pour un doigté particulier, ajoute `shapes` dans le morceau : six valeurs du mi grave au mi aigu (`0` à vide, `x` muette, sinon la case), `fingers` de 1 à 4, et éventuellement `barre` (`from` / `to` de 6 à 1).
+Utilise de préférence la notation entre crochets : elle positionne l'accord sur les paroles et alimente automatiquement les diagrammes. Les anciennes grilles conservent aussi leurs diagrammes quand une ligne ne contient que des noms d'accords séparés par des espaces, par exemple `C   Am   F   G`.
+
+Les positions courantes sont dans `src/data/chord-shapes.ts` : emploie simplement leur nom dans la grille, par exemple `[C]`, `[Am]` ou `[G]`. Pour un doigté particulier ou un accord absent du dictionnaire, ajoute `shapes` dans le morceau : six valeurs du mi grave au mi aigu (`0` à vide, `x` muette, sinon la case), `fingers` de 1 à 4, et éventuellement `barre` (`from` / `to` de 6 à 1). Une forme locale porte exactement le même nom que l'accord de la grille et remplace une éventuelle forme globale.
 
 Un bloc `tab` affiche une tablature en caractères, espaces conservés.
 
@@ -39,3 +41,6 @@ Les diagrammes sont dessinés par [svguitar](https://github.com/omnibrain/svguit
 ## Architecture
 
 Même principe que DevFiches : Astro en export statique, collection de contenu validée par un schéma, îlots Vue seulement là où il y a une interaction. Pas de serveur, pas de compte, pas de base. Les brouillons remplacent l'ancien stockage privé du navigateur : ce qui est publié est dans Git.
+
+## Ressources: 
+https://www.boiteachansons.net/partitions/francis-cabrel/je-l-aime-a-mourir

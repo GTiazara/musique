@@ -1,7 +1,7 @@
 ---
 title: "Encore et encore"
 artist: "Francis Cabrel"
-description: "La transcription fidèle et intégrale du chef-d'œuvre rock-folk de Francis Cabrel (album Photos de voyage, 1985). Basée exactement sur la structure et le placement des accords de la version de référence d'Ultimate Guitar."
+description: "La transcription fidèle et intégrale du chef-d'œuvre rock-folk de Francis Cabrel (album Photos de voyage, 1985)."
 category: chanson
 difficulty: intermediaire
 status: a-apprendre
@@ -16,20 +16,20 @@ youtube: "https://youtube.com"
 tutorial: "https://youtube.com"
 sheet: "https://tabs.ultimate-guitar.com/tab/francis-cabrel/encore-et-encore-chords-1757838"
 shapes:
-  - name: Em
-    frets: [0, 2, 2, 0, 0, 0]
-  - name: Em7
-    frets: [0, 2, 2, 0, 3, 0]
-  - name: G
-    frets: [3, 2, 0, 0, 0, 3]
-  - name: D
-    frets: [x, x, 0, 2, 3, 2]
-  - name: C
-    frets: [x, 3, 2, 0, 1, 0]
+#   - name: Em
+#     frets: [0, 2, 2, 0, 0, 0]
+#   - name: Em7
+#     frets: [0, 2, 2, 0, 3, 0]
+#   - name: G
+#     frets: [3, 2, 0, 0, 0, 3]
+#   - name: D
+#     frets: [x, x, 0, 2, 3, 2]
+#   - name: C
+#     frets: [x, 3, 2, 0, 1, 0]
   - name: C2
     frets: [x, 3, 2, 0, 3, 0]
-  - name: Am
-    frets: [x, 0, 2, 2, 1, 0]
+#   - name: Am
+#     frets: [x, 0, 2, 2, 1, 0]
   - name: B
     frets: [x, 2, 4, 4, 4, 2]
   - name: D4
@@ -55,89 +55,149 @@ shapes:
 *Rappel : Avec le Capo 1, l'accord noté [Em] résonne comme un Fa mineur (Fm) réel.*
 
 ```grille
-# Intro
-[Em] [Em7] [Em] [Em7] (x2)
+[Intro]
 
-# Couplet 1
-[Em] D'abord vos corps qui se séparent,
+Em  Em7  Em  Em7 (x2)
+
+[Verse]
+
+Em
+D'abord vos corps qui se séparent,
 T'es seule dans la lumière des phares
-[G] T'entends à chaque fois qu'tu respires
+G
+T'entends à chaque fois qu'tu respires
 Comme un bout de tissu qui se déchire
-[C] Et ça continue encore et encore,
-[Am] C'est que le début d'ac[Em]cord, d'accord [Em7]
+C
+Et ça continue encore et encore,
+Am                                   Em   Em7   Em   Em7
+C'est que le début d'accord, d'accord
 
-# Couplet 2
-[Em] L'instant d'après, le vent se déchaîne,
+Em
+L'instant d'après, le vent se déchaîne,
 Les heures s'allongent comme des semaines
-[G] Tu te retrouves seule assise par terre
+G
+Tu te retrouves seule assise par terre
 À bondir à chaque bruit de portières
-[C] Et ça continue encore et encore,
-[Am] C'est que le début d'ac[Em]cord, d'accord [Em7]
+C
+Et ça continue encore et encore,
 
-# Refrain 1
-[G] Quelque chose vient de tomber
-[D] Sur les lames de ton plancher,
-[Em] C'est toujours le même [C] film qui passe
-[G] T'es toute seule au fond de l'espace,
-[B] T'as personne de[Am]vant...
 
-# Couplet 3
-[Em] La même nuit que la nuit d'avant,
+Am                                   Em   Em7
+C'est que le début d'accord, d'accord
+
+[Chorus]
+
+G
+Quelque chose vient de tomber
+D
+Sur les lames de ton plancher,
+Em                                C
+C'est toujours le même film qui passe
+G
+T'es toute seule au fond de l'espace,
+B                     Am
+T'as personne devant...
+
+[Verse]
+
+Em
+La même nuit que la nuit d'avant,
 Les mêmes endroits deux fois trop grands
-[G] T'avances comme dans des couloirs,
+G
+T'avances comme dans des couloirs,
 Tu t'arranges pour éviter les miroirs
-[C] Et ça continue encore et encore,
-[Am] C'est que le début d'ac[Em]cord, d'accord [Em7]
+C
+Et ça continue encore et encore,
+Am                                   Em   Em7
+C'est que le début d'accord, d'accord
 
-# Refrain 2
-[G] Quelque chose vient de tomber
-[D] Sur les lames de ton plancher,
-[Em] C'est toujours le même [C] film qui passe
-[G] T'es toute seule au fond de l'espace,
-[B] T'as personne de[Am]vant...... personne
+[Chorus]
 
-# Pont (Parlé)
-[G]             [D]                           [Em]   [C]
- Faudrait qu't'arrives à en parler au passé,
-[G]             [D]                       [Em]
- Faudrait qu't'arrives à ne plus penser à ça
-[G]             [D]                       [Em]
- Faudrait qu'tu l'oublies à longueur de journée
-[G]            [D]                       [Em]
- Dis-toi qu'il est de l'autre côté du pôle,
-[C] Dis-toi surtout qu'il ne reviendra pas
-[G]            [D]                       [C2]
- Et ça fait marrer les oiseaux qui s'envolent,
-[D] Les oiseaux qui s'envolent [D4] [D] [D4] [D]
+G
+Quelque chose vient de tomber
+D
+Sur les lames de ton plancher,
+Em                                C
+C'est toujours le même film qui passe
+G
+T'es toute seule au fond de l'espace,
+B                Am
+T'as personne devant...... personne
+
+[Bridge]
+
+G                           D
+Faudrait qu't'arrives à en parler au passé,
+Em                           C
+Faudrait qu't'arrives à ne plus penser à ça
+G                            D                 Em
+Faudrait qu'tu l'oublies à longueur de journée
+G                      D                  Em
+Dis-toi qu'il est de l'autre côté du pôle,
+              C
+Dis-toi surtout qu'il ne reviendra pas
+G                     D                   C2
+Et ça fait marrer les oiseaux qui s'envolent,
+
+                  D
+Les oiseaux qui s'envolent
+                      D4   D   D4   D
 Les oiseaux qui s'envolent
 
-# Couplet 4
-[Em] Tu comptes les chances qu'il te reste,
+[Verse]
+
+Em
+Tu comptes les chances qu'il te reste,
 Un peu de son parfum sur ta veste
-[G] Tu avais dû confondre les lumières
+G
+Tu avais dû confondre les lumières
 D'une étoile et d'un réverbère
-[C] Et ça continue encore et encore,
-[Am] C'est que le début d'ac[Em]cord, d'accord [Em7]
-[C] Et ça continue encore et encore,
-[Am] C'est que le début d'ac[Em]cord, d'accord [Em7]
+C
+Et ça continue encore et encore,
+Am                                   Em   Em7
+C'est que le début d'accord, d'accord
+C
+Et ça continue encore et encore,
+Am                                   Em   Em7
+C'est que le début d'accord, d'accord
 
-# Refrain 3 (Variante Plafond)
-[G] Y a des couples qui se défont
-[D] Sur les lames de ton plafond
-[Em] C'est toujours le même [C] film qui passe
-[G] T'es toute seule au fond de l'espace,
-[B] T'as personne de[Am]vant... Personne!
+[Chorus 2]
 
-# Refrain 4
-[G] Quelque chose vient de tomber
-[D] Sur les lames de ton plancher,
-[Em] C'est toujours le même [C] film qui passe
-[G] T'es toute seule au fond de l'espace,
-[B] T'as personne de[Am]vant... Personne!
+G
+Y a des couples qui se défont
+D
+Sur les lames de ton plafond
+Em                                C
+C'est toujours le même film qui passe
+G
+T'es toute seule au fond de l'espace,
+B                Am
+T'as personne devant... Personne!
 
-# Outro (Fade out)
-[G] Y a des couples qui se défont
-[D] Sur les lames de ton plafond
-[Em] C'est toujours le même [C] film qui passe (Même film qui passe)
-[G] [B] [Am] [G] [D] [Em] [C] [G]
+[Chorus 1]
+
+G
+Quelque chose vient de tomber
+D
+Sur les lames de ton plancher,
+Em                                C
+C'est toujours le même film qui passe
+G
+T'es toute seule au fond de l'espace,
+B                Am
+T'as personne devant... Personne!
+
+[Chorus 2]
+
+G
+Y a des couples qui se défont
+D
+Sur les lames de ton plafond
+Em                                C
+C'est toujours le même film qui passe (Même film qui passe)
+
+G   B   Am
+G   D   Em   C
+G
+(fade out)
 ```

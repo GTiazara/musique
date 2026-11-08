@@ -59,7 +59,7 @@ const links = [
     )}
     {diagrams.length > 0 && (
       <section>
-        <h2>Positions</h2>
+        <h2>Accords du morceau</h2>
         {capo && <p class="note">Les diagrammes montrent les doigtés écrits. Le capo, s'il y en a un, se place en plus.</p>}
         <ChordDiagrams client:load diagrams={diagrams} />
       </section>

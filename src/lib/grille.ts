@@ -111,15 +111,29 @@ export function tabToHtml(source: string): string {
 export function chordNamesInMarkdown(markdown: string): string[] {
   const names: string[] = [];
   const seen = new Set<string>();
+  const addName = (name: string): void => {
+    if (seen.has(name)) return;
+    seen.add(name);
+    names.push(name);
+  };
   const fences = markdown.matchAll(/```grille[^\n]*\r?\n([\s\S]*?)```/g);
   for (const fence of fences) {
-    for (const line of parseGrille(fence[1] ?? '')) {
+    const source = fence[1] ?? '';
+    for (const line of parseGrille(source)) {
       if (line.kind !== 'music') continue;
       for (const chunk of line.chunks) {
-        if (!chunk.chord || seen.has(chunk.chord)) continue;
-        seen.add(chunk.chord);
-        names.push(chunk.chord);
+        if (chunk.chord) addName(chunk.chord);
       }
+    }
+
+    // Certaines anciennes fiches alignent les accords sur une ligne séparée,
+    // sans crochets. On les reconnaît seulement si toute la ligne est composée
+    // d'accords : les paroles ordinaires ne peuvent donc pas être prises pour
+    // des diagrammes.
+    for (const sourceLine of source.replace(/\r\n/g, '\n').split('\n')) {
+      const tokens = sourceLine.trim().split(/\s+/).filter(Boolean);
+      if (tokens.length === 0 || !tokens.every(isChordName)) continue;
+      for (const token of tokens) addName(token);
     }
   }
   return names;

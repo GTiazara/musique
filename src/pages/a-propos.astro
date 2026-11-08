@@ -16,7 +16,7 @@ const base = import.meta.env.BASE_URL;
     <li>Écris la grille et, si tu veux, la tablature. Passe <code>draft</code> à <code>false</code> pour publier.</li>
   </ol>
   <h2>Grille</h2>
-  <p>Dans un bloc <code>grille</code>, un accord entre crochets se place au-dessus des mots qui suivent, comme sur une page de tutoriel. Une ligne qui commence par <code>#</code> nomme le couplet ou le refrain.</p>
+  <p>Dans un bloc <code>grille</code>, un accord entre crochets se place au-dessus des mots qui suivent, comme sur une page de tutoriel. Une ligne qui commence par <code>#</code> nomme le couplet ou le refrain. Les accords utilisés sont détectés automatiquement et leurs diagrammes s'affichent en haut de la fiche, dans leur ordre de première apparition.</p>
   <pre class="prose-example">{`\`\`\`grille
 # Couplet
 [C]Au clair de la [G7]lune
@@ -24,10 +24,13 @@ const base = import.meta.env.BASE_URL;
 \`\`\``}</pre>
   <h2>Doigtés</h2>
   <p>
-    Les accords courants (C, Am, G, F en barré, Em7…) ont déjà une position. Pour un doigté précis, ajoute
-    <code>shapes</code> dans le fichier. Six valeurs, du mi grave au mi aigu : <code>0</code> corde à vide,
+    Les accords courants (C, Am, G, F en barré, Em7…) ont déjà une position dans <code>src/data/chord-shapes.ts</code> :
+    écris simplement leur nom dans la grille, par exemple <code>[C]</code> ou <code>[Am]</code>. Pour un doigté précis
+    ou un accord absent, ajoute <code>shapes</code> dans le fichier. Son <code>name</code> doit correspondre exactement
+    au nom écrit dans la grille. Six valeurs, du mi grave au mi aigu : <code>0</code> corde à vide,
     <code>x</code> corde muette, un nombre pour la case. <code>fingers</code> numérote les doigts de 1 à 4.
-    <code>barre</code> décrit un barré : <code>from</code> et <code>to</code> vont de 6 (mi grave) à 1 (mi aigu).
+    <code>barre</code> décrit un barré : <code>from</code> et <code>to</code> vont de 6 (mi grave) à 1 (mi aigu). Une
+    forme locale remplace la forme globale du même nom.
   </p>
   <h2>Tablature</h2>
   <p>Un bloc <code>tab</code> reste en caractères, aligné comme dans les tutos. Les espaces sont conservés.</p>

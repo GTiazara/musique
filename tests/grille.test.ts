@@ -54,4 +54,9 @@ describe('accords cités', () => {
     const markdown = ['```grille', '[C]a [G]b', '[C]c', '```', 'hors bloc [Am]'].join('\n');
     expect(chordNamesInMarkdown(markdown)).toEqual(['C', 'G']);
   });
+
+  it('lit les lignes d’accords séparées des anciennes grilles', () => {
+    const markdown = ['```grille', 'C       C/B C/D', 'Une ligne de paroles', 'Am      Dm', '```'].join('\n');
+    expect(chordNamesInMarkdown(markdown)).toEqual(['C', 'C/B', 'C/D', 'Am', 'Dm']);
+  });
 });
