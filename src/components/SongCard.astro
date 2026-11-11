@@ -11,6 +11,8 @@ interface Props {
   statusLabel: string;
   chords: string[];
   href: string;
+  keyName?: string;
+  capo?: number;
 }
 const props = Astro.props;
 ---
@@ -27,6 +29,10 @@ const props = Astro.props;
     <p class="meta">
       <span class:list={['pill', { easy: props.difficulty === 'debutant' }]}>{props.difficultyLabel}</span>
       <span class:list={['pill', { done: props.status === 'maitrise' }]}>{props.statusLabel}</span>
+      {props.keyName && <span class="pill pill-key" title={`Tonalité ${props.keyName}`}>🎵 {props.keyName}</span>}
+      {typeof props.capo === 'number' && props.capo > 0 && (
+        <span class="pill pill-capo" title={`Capodastre en case ${props.capo}`}>🎯 Capo {props.capo}</span>
+      )}
     </p>
     {props.chords.length > 0 && (
       <p class="chord-row">

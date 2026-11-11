@@ -72,6 +72,7 @@ export type SearchDocument = {
   status: string;
   statusLabel: string;
   capo: number;
+  key?: string;
   chords: string[];
   headings: string[];
   body: string;
@@ -96,6 +97,7 @@ export function toSearchDocument(entry: MorceauEntryLike, base = '/'): SearchDoc
     status: entry.data.status,
     statusLabel: statusLabel(entry.data.status),
     capo: entry.data.capo,
+    key: entry.data.key,
     chords: chordNamesInMarkdown(markdown),
     headings: headingsFromMarkdown(markdown),
     body: plainTextFromMarkdown(markdown),
@@ -128,4 +130,62 @@ export function capoLabel(capo: number, capoNote?: string): string {
   if (capo > 0) parts.push(`Capo case ${capo}`);
   if (capoNote) parts.push(capoNote);
   return parts.join(' · ');
+}
+
+export type FormattedKey = {
+  code: string;
+  name: string;
+  fullName: string;
+};
+
+const KEY_NAMES: Record<string, string> = {
+  C: 'Do majeur',
+  Cm: 'Do mineur',
+  'C#': 'Do♯ majeur',
+  'C#m': 'Do♯ mineur',
+  Db: 'Ré♭ majeur',
+  D: 'Ré majeur',
+  Dm: 'Ré mineur',
+  'D#m': 'Ré♯ mineur',
+  Eb: 'Mi♭ majeur',
+  Ebm: 'Mi♭ mineur',
+  E: 'Mi majeur',
+  Em: 'Mi mineur',
+  F: 'Fa majeur',
+  Fm: 'Fa mineur',
+  'F#': 'Fa♯ majeur',
+  'F#m': 'Fa♯ mineur',
+  Gb: 'Sol♭ majeur',
+  G: 'Sol majeur',
+  Gm: 'Sol mineur',
+  'G#': 'Sol♯ majeur',
+  'G#m': 'Sol♯ mineur',
+  Ab: 'La♭ majeur',
+  Abm: 'La♭ mineur',
+  A: 'La majeur',
+  Am: 'La mineur',
+  'A#': 'La♯ majeur',
+  'A#m': 'La♯ mineur',
+  Bb: 'Si♭ majeur',
+  Bbm: 'Si♭ mineur',
+  B: 'Si majeur',
+  Bm: 'Si mineur',
+};
+
+/**
+ * Formate la clé (tonalité) d'un morceau avec son code et son nom complet en français.
+ * Exemple: "Fm" -> { code: "Fm", name: "Fa mineur", fullName: "Fa mineur (Fm)" }
+ */
+export function formatKey(key?: string): FormattedKey | null {
+  if (!key) return null;
+  const trimmed = key.trim();
+  if (!trimmed) return null;
+  const name =
+    KEY_NAMES[trimmed] ??
+    (trimmed.endsWith('m') ? `${trimmed.slice(0, -1)} mineur` : `${trimmed} majeur`);
+  return {
+    code: trimmed,
+    name,
+    fullName: `${name} (${trimmed})`,
+  };
 }

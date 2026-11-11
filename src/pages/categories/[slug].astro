@@ -51,6 +51,8 @@ const cards = published.map((entry) => toSearchDocument(entry, import.meta.env.B
           statusLabel={card.statusLabel}
           chords={card.chords}
           href={card.href}
+          keyName={card.key}
+          capo={card.capo}
         />
       ))}
     </ul>

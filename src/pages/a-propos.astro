@@ -16,12 +16,15 @@ const base = import.meta.env.BASE_URL;
     <li>Écris la grille et, si tu veux, la tablature. Passe <code>draft</code> à <code>false</code> pour publier.</li>
   </ol>
   <h2>Grille</h2>
-  <p>Dans un bloc <code>grille</code>, un accord entre crochets se place au-dessus des mots qui suivent, comme sur une page de tutoriel. Une ligne qui commence par <code>#</code> nomme le couplet ou le refrain. Les accords utilisés sont détectés automatiquement et leurs diagrammes s'affichent en haut de la fiche, dans leur ordre de première apparition.</p>
+  <p>Dans un bloc <code>grille</code>, le format recommandé place la ligne d'accords directement au-dessus des paroles pour une lisibilité maximale, comme sur les songbooks de référence. Une ligne commençant par <code>#</code> (ou entre crochets <code>[Couplet 1]</code>) définit le titre de section. Les accords sont automatiquement détectés pour générer les diagrammes correspondants.</p>
   <pre class="prose-example">{`\`\`\`grille
 # Couplet
-[C]Au clair de la [G7]lune
-[Am] [F] [G] [C]
+    C                       C
+Moi je n'étais rien mais voilà qu'aujourd'hui,
+   C/B                   C/B
+Je suis le gardien du sommeil de ses nuits.
 \`\`\``}</pre>
+  <p>La notation compacte avec accords entre crochets (ex. <code>[C]Au clair de la [G7]lune</code>) reste également pleinement prise en charge.</p>
   <h2>Doigtés</h2>
   <p>
     Les accords courants (C, Am, G, F en barré, Em7…) ont déjà une position dans <code>src/data/chord-shapes.ts</code> :

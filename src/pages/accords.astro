@@ -1,0 +1,137 @@
+---
+import Base from '../layouts/Base.astro';
+import ChordChartViewer from '../components/ChordChartViewer.vue';
+import ChordDiagrams from '../components/ChordDiagrams.vue';
+import { chordShapes } from '../data/chord-shapes';
+import { resolveDiagrams } from '../lib/diagram';
+import { withBase } from '../lib/paths';
+
+const base = import.meta.env.BASE_URL;
+const chartUrl = withBase('/images/ultimate-guitar-chord-chart.webp', base);
+
+// Accords usuels du site représentés en SVG interactifs
+const standardDiagrams = resolveDiagrams(Object.keys(chordShapes), []);
+---
+
+<Base
+  title="Visualisation des accords — Guitarothèque"
+  description="Tableau universel de référence des accords de guitare : positions majeures, mineures, 7e, diminuées et suspendues."
+>
+  <header>
+    <p class="fiche-kicker">
+      <span class="pill">Dictionnaire</span>
+      <span class="pill">Théorie & Pratique</span>
+      <span class="pill">Guitare acoustique & électrique</span>
+    </p>
+    <h1>Visualisation des accords</h1>
+    <p class="lead">
+      Consulte la grille universelle de référence de tous les accords de guitare par tonalité, explore les variantes
+      et retrouve les positions ouvertes courantes du site.
+    </p>
+  </header>
+
+  <!-- Lecteur interactif de la grille d'accords -->
+  <section>
+    <ChordChartViewer
+      client:load
+      src={chartUrl}
+      alt="The Ultimate Guitar Chord Chart — Tableau de référence des accords de guitare"
+    />
+  </section>
+
+  <!-- Guide de lecture d'un diagramme -->
+  <section class="reading-guide">
+    <h2>Comment lire un diagramme d'accord ?</h2>
+    <div class="guide-grid">
+      <div class="guide-card">
+        <h3>1. Les 6 cordes</h3>
+        <p>
+          De gauche à droite, du <strong>Mi grave (grosse corde)</strong> au <strong>Mi aigu (petite corde)</strong> :
+          <code>E - A - D - G - B - e</code>.
+        </p>
+      </div>
+      <div class="guide-card">
+        <h3>2. Les cases & frettes</h3>
+        <p>
+          Le bord supérieur épais représente le <strong>sillet de tête</strong> (case 0). Les lignes horizontales
+          suivantes représentent les frettes (cases 1, 2, 3, etc.).
+        </p>
+      </div>
+      <div class="guide-card">
+        <h3>3. Symboles clés</h3>
+        <p>
+          <strong>●</strong> = doigt posé sur la case.<br />
+          <strong>○</strong> = corde jouée à vide (sans appuyer).<br />
+          <strong>✕</strong> = corde muette à étouffer ou ne pas gratter.
+        </p>
+      </div>
+      <div class="guide-card">
+        <h3>4. Numérotation des doigts</h3>
+        <p>
+          <strong>1</strong> : Index<br />
+          <strong>2</strong> : Majeur<br />
+          <strong>3</strong> : Annulaire<br />
+          <strong>4</strong> : Auriculaire (petit doigt)
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Positions vectorielles SVG interactives du site -->
+  {standardDiagrams.length > 0 && (
+    <section class="native-chords-section">
+      <div class="section-head">
+        <h2>Positions ouvertes usuelles de la Guitarothèque</h2>
+        <span class="artist">{standardDiagrams.length} accords vectoriels</span>
+      </div>
+      <p class="note">Ces diagrammes correspondent aux accords pré-intégrés dans les grilles de morceaux du site.</p>
+      <ChordDiagrams client:load diagrams={standardDiagrams} />
+    </section>
+  )}
+</Base>
+
+<style>
+.reading-guide {
+  margin: 36px 0 44px;
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.guide-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px 18px;
+}
+
+.guide-card h3 {
+  font-size: 1.1rem;
+  color: var(--copper-2);
+  margin-bottom: 8px;
+}
+
+.guide-card p {
+  font-size: 14px;
+  color: #ddd4c8;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.guide-card code {
+  background: #171d21;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-size: 13px;
+  color: var(--copper-2);
+}
+
+.native-chords-section {
+  margin-top: 40px;
+}
+</style>

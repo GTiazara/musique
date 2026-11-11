@@ -67,10 +67,8 @@ T'es seule dans la lumière des phares
 G
 T'entends à chaque fois qu'tu respires
 Comme un bout de tissu qui se déchire
-C
-Et ça continue encore et encore,
-Am                                   Em   Em7   Em   Em7
-C'est que le début d'accord, d'accord
+[C]Et ça continue encore et encore,
+[Am]C'est que le début d'accord, [Em]d'accord [Em7]
 
 Em
 L'instant d'après, le vent se déchaîne,
@@ -78,12 +76,8 @@ Les heures s'allongent comme des semaines
 G
 Tu te retrouves seule assise par terre
 À bondir à chaque bruit de portières
-C
-Et ça continue encore et encore,
-
-
-Am                                   Em   Em7
-C'est que le début d'accord, d'accord
+[C]Et ça continue encore et encore,
+[Am]C'est que le début d'accord, [Em]d'accord [Em7]
 
 [Chorus]
 
@@ -106,10 +100,8 @@ Les mêmes endroits deux fois trop grands
 G
 T'avances comme dans des couloirs,
 Tu t'arranges pour éviter les miroirs
-C
-Et ça continue encore et encore,
-Am                                   Em   Em7
-C'est que le début d'accord, d'accord
+[C]Et ça continue encore et encore,
+[Am]C'est que le début d'accord, [Em]d'accord [Em7]
 
 [Chorus]
 
@@ -152,14 +144,10 @@ Un peu de son parfum sur ta veste
 G
 Tu avais dû confondre les lumières
 D'une étoile et d'un réverbère
-C
-Et ça continue encore et encore,
-Am                                   Em   Em7
-C'est que le début d'accord, d'accord
-C
-Et ça continue encore et encore,
-Am                                   Em   Em7
-C'est que le début d'accord, d'accord
+[C]Et ça continue encore et encore,
+[Am]C'est que le début d'accord, [Em]d'accord [Em7]
+[C]Et ça continue encore et encore,
+[Am]C'est que le début d'accord, [Em]d'accord [Em7]
 
 [Chorus 2]
 

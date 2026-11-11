@@ -38,6 +38,7 @@ export type SearchableMorceau = {
   category: string;
   difficulty: string;
   status: string;
+  key?: string;
 };
 
 /**
@@ -52,6 +53,7 @@ export function morceauMatchesQuery(morceau: SearchableMorceau, query: string): 
       morceau.title,
       morceau.artist,
       morceau.description,
+      morceau.key ?? '',
       morceau.headings.join(' '),
       morceau.chords.join(' '),
       morceau.body,

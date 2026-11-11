@@ -36,6 +36,7 @@ function href(path: string): string {
     <a :href="href('/morceaux')">Morceaux</a>
     <a :href="href('/recherche')">Recherche</a>
     <a :href="href('/categories')">Catégories</a>
+    <a :href="href('/accords')">Accords</a>
     <a :href="href('/a-propos')">À propos</a>
   </nav>
 </template>

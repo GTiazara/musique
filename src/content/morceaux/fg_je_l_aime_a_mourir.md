@@ -49,11 +49,11 @@ shapes:
 Les accords indiqués dans la grille sont les formes à jouer avec le capo en 5e case ; ils sonnent cinq demi-tons plus haut.
 
 ```grille
-[Intro]
+# Intro
 C       C/B C/D
 C       C/B C/D
- 
-[Verse 1]
+
+# Couplet 1
     C                       C
 Moi je n'étais rien mais voilà qu'aujourd'hui,
    C/B                   C/B
@@ -68,98 +68,101 @@ Elle n'a qu'à ouvrir l'espace de ses bras,
 Pour tout reconstruire, pour tout reconstruire,
             Am            Am
 Je l'aime à mourir.
- 
- 
-[Verse 2]
+
+# Couplet 2
        C                          C
 Elle a gommé les chiffres des horloges du quartier,
        C/B                  C/B
 Elle a fait de ma vie des cocottes en papier,
-           Am                Am
+           Am            Am
 Des éclats de rire.
        Dm                   Dm
 Elle a bâti des ponts entre nous et le ciel,
-
-        F                G                               C
+        F                    G
 Et nous les traversons à chaque fois qu'elle ne veut pas dormir,
-            C/B
-Ne veut pas dormir
-            Am       Am
-je l'aime à mourir.
- 
- 
-[Chorus]
-          E                Am     G                   C
-Elle a du faire toutes les guerres pour être si forte aujourd'hui,
-          E                Am       Bbsus2            C
-Elle a du faire toutes les guerres  de la vie   et l'amour aussi.
- 
- 
-[Instrumental]
-        C/B C/D
+            C                     C/B
+Ne veut pas dormir, ne veut pas dormir,
+            Am            Am
+Je l'aime à mourir.
+
+# Refrain 1
+          E                  Am
+Elle a dû faire toutes les guerres
+        G                   C
+Pour être si forte aujourd'hui,
+          E                  Am
+Elle a dû faire toutes les guerres
+        Bbsus2             C
+De la vie et l'amour aussi.
+
+# Instrumental
 C       C/B C/D
- 
- 
-[Verse 3]
+C       C/B C/D
+
+# Couplet 3
      C                    C
 Elle vit de son mieux son rêve d'opaline,
      C/B                   C/B
 Elle danse au milieu des forêts qu'elle dessine,
             Am            Am
 Je l'aime à mourir.
-     Dm                       Dm
+     Dm                     Dm
 Elle porte des rubans qu'elle laisse s'envoler,
-     F                       G                       C
+     F                      G
 Elle chante souvent que j'ai tort d'essayer de les retenir,
-         C/B
-de les retenir,
-            Am
-je l'aime à mourir,
- 
- 
-[Verse 4]
+          C                     C/B
+De les retenir, de les retenir,
+            Am            Am
+Je l'aime à mourir.
+
+# Couplet 4
         C                    C
 Pour monter dans sa grotte cachée sous les toits,
         C/B                    C/B
 Je dois clouer des notes à mes sabots de bois,
-            Am              Am
+            Am            Am
 Je l'aime à mourir.
         Dm                    Dm
-Je dois juste m'assoir, je ne dois pas parler,
-      F                          G                         C
+Je dois juste m'asseoir, je ne dois pas parler,
+      F                        G
 Je ne dois rien vouloir, je dois juste essayer de lui appartenir,
-            C/B                Am
-De lui appartenir, je l'aime à mourir.
- 
- 
-[Chorus]
-          E                Am      G                   C
-Elle a du faire toutes les guerres  pour être si forte aujourd'hui,
+            C                     C/B
+De lui appartenir, de lui appartenir,
+            Am            Am
+Je l'aime à mourir.
 
-          E                Am      Bbsus2              C
-Elle a du faire toutes les guerres de la vie     et l'amour aussi.
- 
- 
-[Instrumental]
-        C/B C/D
+# Refrain 2
+          E                  Am
+Elle a dû faire toutes les guerres
+        G                   C
+Pour être si forte aujourd'hui,
+          E                  Am
+Elle a dû faire toutes les guerres
+        Bbsus2             C
+De la vie et l'amour aussi.
+
+# Instrumental
 C       C/B C/D
- 
- 
-[Verse 5]
-     C                       C
+C       C/B C/D
+
+# Couplet 5
+    C                       C
 Moi je n'étais rien mais voilà qu'aujourd'hui,
    C/B                   C/B
 Je suis le gardien du sommeil de ses nuits,
             Am            Am
-Je l'aime à mourir,
-Dm                           Dm
+Je l'aime à mourir.
+     Dm                      Dm
 Vous pouvez détruire tout ce qui vous plaira,
      F                       G
 Elle n'aura qu'à ouvrir l'espace de ses bras,
           C                       C/B
 Pour tout reconstruire, pour tout reconstruire,
-            Am            Am    C
+            Am            Am
 Je l'aime à mourir.
-```
 
----
+# Outro
+C       C/B C/D
+C       C/B C/D
+C
+```
