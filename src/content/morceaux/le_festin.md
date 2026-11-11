@@ -45,28 +45,28 @@ Dm7              G/B
 Ils donnent de la joie
       Em7         Am7
 Ou bien du chagrin
-C       C/B        G/Bb          A
+C       C/B        G/Bb          A7
 Affaibli par la faim, je suis malheureux
 Dm7             G                 Em7     A7
 Volant en chemin tout ce que je peux
-   F               G
+   F               G                C
 Car rien n'est gratuit dans la vie
 
 # Couplet 2
 
-C             Am
+C                  Am7
 L'espoir est un plat
-   Dm                G7
+   Dm7              G
 Bien trop vite consommé
-Dm              G7
+Dm7              G/B
 À sauter les repas
-      Em           Am
+      Em7         Am7
 Je suis habitué
-C               Bb             A7
+C       C/B        G/Bb          A7
 Un voleur solitaire est triste à nourrir
-Dm              G7             Em       A7
+Dm7             G                 Em7     A7
 À un jeu si amer, je n'peux réussir
-   Fmaj7          G7
+   F               G                C
 Car rien n'est gratuit dans...
 
 # Refrain
@@ -86,17 +86,19 @@ Nous allons enfin nous régaler
 
 # Couplet 3
 
-   F             Dm            G7
+C                  Am7
 La fête va enfin commencer
-C                  Am                G7
+   Dm7              G
 Sortez les bouteilles, finis les ennuis
-Dm               G7              Em        Am
+Dm7              G/B
 Je dresse la table de ma nouvelle vie
-   C                          A7
-Je suis heureux à l'idée de ce nouveau destin
-      Dm               G7            Em       A7
+      Em7         Am7
+Je suis heureux à l'idée
+C       C/B        G/Bb          A7
+de ce nouveau destin
+Dm7             G                 Em7     A7
 Une vie à me cacher et puis libre enfin
-   Fmaj7       G7          C
+   F               G                C
 Le festin est sur mon chemin
 
 # Outro
