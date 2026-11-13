@@ -45,7 +45,7 @@ Dm7              G/B
 Ils donnent de la joie
       Em7         Am7
 Ou bien du chagrin
-C       C/B        G/Bb          A7
+C       G/B        G/Bb          A7
 Affaibli par la faim, je suis malheureux
 Dm7             G                 Em7     A7
 Volant en chemin tout ce que je peux
@@ -62,7 +62,7 @@ Dm7              G/B
 À sauter les repas
       Em7         Am7
 Je suis habitué
-C       C/B        G/Bb          A7
+C       G/B        G/Bb          A7
 Un voleur solitaire est triste à nourrir
 Dm7             G                 Em7     A7
 À un jeu si amer, je n'peux réussir
@@ -71,30 +71,32 @@ Car rien n'est gratuit dans...
 
 # Refrain
 
-   C                    F
+   C       G/B        G/Bb          A7
 La vie... Jamais on ne me dira
-      Dm              G7
+      Dm7              G
 Que la course aux étoiles
-      Dm         G7
+      Dm7         G
 Ça n'est pas pour moi
-      C                    F
+      C       G/B        
 Laissez-moi vous émerveiller
-            Dm          G7
+    G/Bb          A7
 Et prendre mon envol
-      Dm              G7            C
+      Dm7              G            F/B
 Nous allons enfin nous régaler
+
+
+Dm7              G
+La fête va enfin commencer
 
 # Couplet 3
 
-C                  Am7
-La fête va enfin commencer
-   Dm7              G
+C                  Am7  Dm7              G
 Sortez les bouteilles, finis les ennuis
-Dm7              G/B
+Dm7              G     Em7         Am7
 Je dresse la table de ma nouvelle vie
-      Em7         Am7
+C       G/B        
 Je suis heureux à l'idée
-C       C/B        G/Bb          A7
+G/Bb          A7
 de ce nouveau destin
 Dm7             G                 Em7     A7
 Une vie à me cacher et puis libre enfin
