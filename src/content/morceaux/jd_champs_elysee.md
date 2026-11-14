@@ -105,3 +105,5 @@ Aux Champs-Ély[C]sées, [E7] aux Champs-Ély[Am]sées [C7]
 Au so[F]leil, sous la [C] pluie, à mi[D7]di ou à mi[G]nuit
 Il y a [C] tout ce que vous [E7] voulez aux [Am] Champs-Ély[C7]sées [F] [C] [G] [C]
 ```
+  
+

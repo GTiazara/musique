@@ -10,7 +10,8 @@ export const categories = [
   { slug: 'chanson', label: 'Chanson française' },
   { slug: 'variete', label: 'Variété française' },
   { slug: 'reaggae', label: 'Reggae' },
-  { slug: 'slowrock', label: 'Slow Rock' }
+  { slug: 'slowrock', label: 'Slow Rock' },
+  { slug: 'classic', label: 'Classique' }
 ] as const;
 
 export const categorySlugs = categories.map((item) => item.slug) as [
