@@ -28,7 +28,8 @@ async function drawDiagrams(): Promise<void> {
       .configure({
         frets: diagram.fretCount,
         position: diagram.position,
-        orientation: 'vertical',
+        orientation: 'horizontal',
+        leftHanded: true,
         // Le titre doit être dans la config : avec fixedDiagramPosition, svguitar
         // efface le titre s'il n'est porté que par l'accord.
         title: diagram.name,

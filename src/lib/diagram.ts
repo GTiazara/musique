@@ -1,7 +1,7 @@
 import { chordShapes, type ChordShape } from '../data/chord-shapes';
 import type { ShapeData } from './morceau-schema';
 
-/** Doigt transmis à svguitar : [corde, case ou « x », numéro de doigt]. La corde 6 est le mi grave. */
+/** Doigt transmis à svguitar : [corde, case ou « x », numéro de doigt]. La corde 1 est le mi grave, dessinée en haut ; la 1ʳᵉ corde du guitariste (mi aigu) est en bas. */
 export type DiagramFinger = [number, number | 'x'] | [number, number, string];
 
 export type DiagramBarre = {
@@ -45,7 +45,7 @@ function diagramWindow(frets: Array<number | 'x'>): { position: number; fretCoun
 
 /**
  * Une corde est-elle couverte par la barre à cette case relative ?
- * `stringNumber` suit svguitar : 6 est le mi grave.
+ * `stringNumber` suit svguitar : 1 est le mi grave.
  */
 function underBarre(stringNumber: number, relative: number, barre: DiagramBarre): boolean {
   const low = Math.max(barre.fromString, barre.toString);
@@ -61,9 +61,12 @@ export function diagramFromShape(name: string, shape: ChordShape): DiagramView {
   const { position, fretCount } = diagramWindow(shape.frets);
   const barres: DiagramBarre[] = [];
   if (shape.barre) {
+    // Les barres sont écrites avec 1 = mi aigu ; ici svguitar numérote 1 = mi grave.
+    // SVGuitar étire la barre de fromString vers les numéros décroissants :
+    // il faut donc donner la corde au plus grand numéro en premier.
     barres.push({
-      fromString: shape.barre.from,
-      toString: shape.barre.to,
+      fromString: 7 - Math.min(shape.barre.from, shape.barre.to),
+      toString: 7 - Math.max(shape.barre.from, shape.barre.to),
       fret: relativeFret(shape.barre.fret, position),
       text: shape.barre.finger ? String(shape.barre.finger) : undefined,
     });
@@ -71,8 +74,8 @@ export function diagramFromShape(name: string, shape: ChordShape): DiagramView {
 
   const fingers: DiagramFinger[] = [];
   shape.frets.forEach((fret, index) => {
-    // L'index 0 est le mi grave, donc la corde 6 de svguitar.
-    const stringNumber = 6 - index;
+    // L'index 0 est le mi grave, donc la corde 1 de svguitar (dessinée en haut).
+    const stringNumber = index + 1;
     if (fret === 'x') {
       fingers.push([stringNumber, 'x']);
       return;
