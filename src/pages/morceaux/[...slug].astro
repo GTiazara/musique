@@ -11,6 +11,7 @@ import {
   sortByUpdatedDesc,
   toSearchDocument,
 } from '../../lib/morceaux';
+import { extractYouTubeId } from '../../lib/youtube';
 import { withBase } from '../../lib/paths';
 
 /**
@@ -38,11 +39,36 @@ const base = import.meta.env.BASE_URL;
 const keyInfo = formatKey(entry.data.key);
 const hasCapo = entry.data.capo > 0;
 const capoText = capoLabel(entry.data.capo, entry.data.capoNote);
+const youtubeId = entry.data.youtube ? extractYouTubeId(entry.data.youtube) : '';
+const tutorialId = entry.data.tutorial ? extractYouTubeId(entry.data.tutorial) : '';
+const parolesId = entry.data.paroles ? extractYouTubeId(entry.data.paroles) : '';
+/**
+ * Blocs de l'interprétation : `## Titre` devient un sous-titre,
+ * les lignes vides séparent les paragraphes.
+ */
+const interpretationBlocks = (entry.data.interpretation ?? '')
+  .split(/\n\s*\n/)
+  .map((block) => block.replace(/\s*\n\s*/g, ' ').trim())
+  .filter(Boolean)
+  .map((block) =>
+    block.startsWith('## ')
+      ? { type: 'h3' as const, text: block.slice(3).trim() }
+      : { type: 'p' as const, text: block },
+  );
+const players = [
+  { label: 'Le morceau', id: youtubeId },
+  { label: 'Le tutoriel', id: tutorialId },
+  { label: 'Les paroles', id: parolesId },
+].filter((player) => player.id);
 const links = [
   ['Écouter', entry.data.youtube, ''],
   ['Tutoriel', entry.data.tutorial, 'secondary'],
+  ['Paroles', entry.data.paroles, 'secondary'],
   ['Autre source', entry.data.sheet, 'secondary'],
-].filter((item): item is [string, string, string] => Boolean(item[1]));
+]
+  // Un lecteur intégré remplace le lien externe quand l'URL est une vidéo YouTube identifiable.
+  .filter(([, href]) => !(href && extractYouTubeId(href)))
+  .filter((item): item is [string, string, string] => Boolean(item[1]));
 ---
 <Base title={`${card.title} — Guitarothèque`} description={card.description}>
   <article class="fiche-article">
@@ -145,6 +171,31 @@ const links = [
         ))}
       </p>
     )}
+    {players.length > 0 && (
+      <section class="player-section" aria-label="Lecteur audio/vidéo">
+        <h2>Écouter</h2>
+        {players.map((player) => (
+          <div class="player-item">
+            {players.length > 1 && <h3>{player.label}</h3>}
+            <div class="yt-player" data-youtube-id={player.id}>
+              <button type="button" class="yt-player-poster" aria-label={`Lire ${player.label}`}>
+                <img
+                  src={`https://i.ytimg.com/vi/${player.id}/hqdefault.jpg`}
+                  alt=""
+                  loading="lazy"
+                />
+                <span class="yt-play" aria-hidden="true">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M8 5v14l11-7z"></path>
+                  </svg>
+                </span>
+              </button>
+              <div class="yt-player-frame" hidden></div>
+            </div>
+          </div>
+        ))}
+      </section>
+    )}
     {diagrams.length > 0 && (
       <section class="chord-diagrams-section">
         <h2>Accords du morceau</h2>
@@ -161,7 +212,40 @@ const links = [
     <div class="reading">
       <Content />
     </div>
+    {interpretationBlocks.length > 0 && (
+      <section class="interpretation-section" aria-label="Interprétation de la chanson">
+        <h2>Interprétation</h2>
+        {interpretationBlocks.map((block) =>
+          block.type === 'h3' ? <h3>{block.text}</h3> : <p>{block.text}</p>
+        )}
+      </section>
+    )}
     <TabPlayer client:load capo={entry.data.capo} />
+    {players.length > 0 && (
+      <script is:inline>
+        (() => {
+          const players = document.querySelectorAll('.yt-player[data-youtube-id]');
+          players.forEach((player) => {
+            const id = player.dataset.youtubeId;
+            const button = player.querySelector('.yt-player-poster');
+            const frame = player.querySelector('.yt-player-frame');
+            if (!id || !button || !frame || !/^[\w-]{11}$/.test(id)) return;
+            button.addEventListener('click', () => {
+              const iframe = document.createElement('iframe');
+              iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+              iframe.title = 'Lecteur YouTube';
+              iframe.allow =
+                'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+              iframe.allowFullscreen = true;
+              frame.innerHTML = '';
+              frame.appendChild(iframe);
+              frame.hidden = false;
+              button.hidden = true;
+            });
+          })();
+        })();
+      </script>
+    )}
     {(newer || older) && (
       <nav class="fiche-pager" aria-label="Autres morceaux">
         {newer ? (
@@ -180,3 +264,103 @@ const links = [
     )}
   </article>
 </Base>
+
+<style>
+  .player-section {
+    margin: 1.5rem 0;
+  }
+  .player-section h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.1rem;
+  }
+  .player-item {
+    margin-bottom: 1.5rem;
+  }
+  .player-item:last-child {
+    margin-bottom: 0;
+  }
+  .player-item h3 {
+    margin: 0 0 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+  .yt-player {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+  }
+  .yt-player-poster {
+    all: unset;
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    display: block;
+  }
+  .yt-player-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .yt-play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .yt-player-poster:hover .yt-play,
+  .yt-player-poster:focus-visible .yt-play {
+    transform: translate(-50%, -50%) scale(1.06);
+    background: rgba(220, 38, 38, 0.9);
+  }
+  .yt-play svg {
+    margin-left: 3px;
+  }
+  .interpretation-section {
+    margin: 2.5rem auto;
+    max-width: 720px;
+  }
+  .interpretation-section h2 {
+    margin: 0 0 1rem;
+    font-size: 1.3rem;
+  }
+  .interpretation-section h3 {
+    margin: 1.5rem 0 0.5rem;
+    font-size: 1.05rem;
+  }
+  .interpretation-section p {
+    margin: 0 0 1rem;
+    line-height: 1.7;
+    text-align: justify;
+  }
+  .yt-player-frame {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .yt-player-frame :global(iframe) {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+</style>

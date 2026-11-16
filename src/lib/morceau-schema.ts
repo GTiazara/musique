@@ -41,6 +41,9 @@ export const morceauSchema = z.object({
   youtube: httpUrl.optional(),
   tutorial: httpUrl.optional(),
   sheet: httpUrl.optional(),
+  paroles: httpUrl.optional(),
+  /** Analyse textuelle de la chanson. Chaîne multi-lignes ; `## Titre` crée un sous-titre. */
+  interpretation: z.string().trim().optional(),
   shapes: z.array(shapeSchema).default([]),
 });
 

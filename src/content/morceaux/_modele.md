@@ -12,6 +12,17 @@ tags: [modele]
 publishedAt: 2026-11-04
 updatedAt: 2026-11-04
 draft: true
+# interpretation: |
+#   Texte d'analyse de la chanson. Les lignes vides séparent les paragraphes.
+#   Une ligne commençant par "## " crée un sous-titre.
+#   Exemple :
+#   Une jeunesse suspendue entre espoir et désillusion
+#
+#   Sortie en 1992 sur l'album ...
+#
+#   ## La tension entre le monde intérieur et le monde extérieur
+#
+#   La chanson construit une opposition constante ...
 shapes:
   - name: Cadd9
     frets: [x, 3, 2, 0, 3, 0]
