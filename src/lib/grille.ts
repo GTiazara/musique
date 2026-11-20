@@ -1,6 +1,6 @@
 /** Nom d'accord tel qu'on l'écrit dans une grille : Em7, Dsus4, F#m, Bb, C/G. */
 const CHORD_NAME =
-  /^[A-G](?:#|b)?(?:m|min|maj|dim|aug|sus|add|M)?\d{0,2}(?:sus[24]|add\d{1,2}|maj\d{1,2}|m\d{1,2}|b5|#5|b9|#9|°|ø|\+)*(?:\/[A-G](?:#|b)?)?$/;
+  /^[A-G](?:#|b)?(?:m|min|maj|dim|aug|sus|add|M)?\d{0,2}(?:sus[24]|add\d{1,2}|maj\d{1,2}|m\d{1,2}|b5|#5|b9|#9|°|ø|\+|\/\d{1,2})*(?:\/[A-G](?:#|b)?)?$/;
 
 export type SheetChunk = { chord: string; lyric: string };
 
@@ -29,7 +29,9 @@ export function parseSectionLine(line: string): { isSection: boolean; text: stri
   }
   if (trimmed.startsWith('[') && trimmed.endsWith(']')) {
     const inner = trimmed.slice(1, -1).trim();
-    if (!isChordName(inner)) {
+    // Une section est une seule paire de crochets (ex: [Verse 1], [Intro]).
+    // Une ligne avec plusieurs groupes [C] [D] n'est pas une section.
+    if (!inner.includes('[') && !inner.includes(']') && !isChordName(inner)) {
       return { isSection: true, text: inner };
     }
   }

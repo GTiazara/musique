@@ -27,6 +27,27 @@ export const chordShapes: Record<string, ChordShape> = {
     fingers: [0, 0, 0, 2, 1, 1],
     barre: { fret: 1, from: 2, to: 1, finger: 1 },
   },
+  'D9/11': {
+    frets: ['x', 5, 4, 0, 5, 3],
+    fingers: [0, 1, 2, 0, 3, 4],
+  },
+  'F#m': {
+    frets: ['x', 2, 4, 4, 2, 2],
+    fingers: [0, 1, 3, 4, 2, 2],
+    barre: { fret: 2, from: 5, to: 1, finger: 1 },
+  },
+  'A7add13': {
+    frets: ['x', 0, 2, 0, 2, 3],
+    fingers: [0, 0, 1, 0, 2, 3],
+  },
+  'Gadd9': {
+    frets: ['x', 0, 2, 0, 3, 0],
+    fingers: [0, 0, 1, 0, 3, 0],
+  },
+  'A/G': {
+    frets: [3, 'x', 2, 2, 2, 0],
+    fingers: [3, 0, 1, 2, 3, 0],
+  },
   E: { frets: [0, 2, 2, 1, 0, 0], fingers: [0, 2, 3, 1, 0, 0] },
   E7: { frets: [0, 2, 0, 1, 0, 0], fingers: [0, 2, 0, 1, 0, 0] },
   Em: { frets: [0, 2, 2, 0, 0, 0], fingers: [0, 2, 3, 0, 0, 0] },
@@ -50,5 +71,15 @@ export const chordShapes: Record<string, ChordShape> = {
     frets: ['x', 2, 4, 4, 3, 2],
     fingers: [0, 1, 3, 4, 2, 1],
     barre: { fret: 2, from: 5, to: 1, finger: 1 },
+  },
+  Bm7: {
+    frets: ['x', 2, 4, 2, 3, 2],
+    fingers: [0, 1, 4, 1, 2, 1],
+    barre: { fret: 2, from: 5, to: 1, finger: 1 },
+  },
+  'Bè': {
+    frets: ['x', 1, 3, 3, 3, 1],
+    fingers: [0, 1, 3, 3, 3, 1],
+    barre: { fret: 1, from: 5, to: 1, finger: 1 },
   },
 };
